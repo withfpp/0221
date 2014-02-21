@@ -1,0 +1,67 @@
+ <!DOCTYPE html>
+ <html ng-app>
+ <head>
+ 	<meta charset="utf-8">
+ 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ 	<title></title>
+ 	<link rel="stylesheet" href="">
+ 	<script src="todo.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/css/foundation.css">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/css/foundation.min.css"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/css/normalize.min.css"></script>
+
+<style>
+	.done-true{
+		text-decoration: line-through;
+		color: orange;
+	}
+	li {
+		margin: px;
+		background-color: #008DBB;
+	}
+	.panel{
+		border-style: none;
+	}
+</style>	
+
+ </head>
+ <body ng-controller="TodoCtrl">
+ 	<section role="main">
+		<div class="row">
+			<div class="eight columns">
+				<div class="medium-4 columns">
+				<h2>Todo_angular</h2>
+				<p>{{remaining()}} of {{todos.length}} remaining <a href="" ng-click="archive()">[archive]</a></p>
+				</div>
+
+				<div class="medium-8 columns">
+					<ul class="unstyled medium-block-grid-3">
+						<div class="medium-12 columns">
+						<div class="panel" ng-repeat="todo in todos">
+							<input type="checkbox" id="checkbox1" ng-model="todo.done">
+							<span class="done-{{todo.done}}">{{todo.name}}</span>
+						</div>
+						</div>
+					</ul>		
+				</div>
+
+				
+				<div class="medium-12 columns">
+					<form ng-submit="addTodo()">
+							<input type="text" ng-model="todoText">
+							<input type="submit" class="button [radius round] expand" value="add">
+					</form>
+				</div>
+
+			</div>
+			
+			
+			
+	</section>
+
+ </body>
+ </html>
+
